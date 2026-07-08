@@ -1,6 +1,6 @@
 # Architecture Diagrams Skill
 
-Architecture diagrams as code for AI agents. Structurizr DSL (C4 model), PlantUML (all UML types), and Graphviz — with patterns, templates, and references.
+Architecture diagrams as code for AI agents. Structurizr DSL (C4 model), PlantUML (all UML types), and Graphviz, with patterns, templates, and references.
 
 ## Features
 
@@ -41,9 +41,9 @@ ln -s ~/.agents/skills/architecture-diagrams ~/.codex/skills/architecture-diagra
 
 ## Requirements
 
-- **Structurizr CLI** — `brew install structurizr-cli` (alias `structurizr` recommended)
-- **PlantUML** — download JAR: `curl -L -o .temp/plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar`
-- **Graphviz** — `brew install graphviz`
+- **Structurizr CLI**: `brew install structurizr-cli` (alias `structurizr` recommended)
+- **PlantUML**: download JAR: `curl -L -o .temp/plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar`
+- **Graphviz**: `brew install graphviz`
 
 ## AI Agent Skill Setup
 
@@ -110,7 +110,7 @@ skill-architecture-diagrams/
 
 | File | Description |
 |------|-------------|
-| `SKILL.md` | Full skill specification — patterns, folder structure, commands, best practices |
+| `SKILL.md` | Full skill specification: patterns, folder structure, commands, best practices |
 | `references/` | Syntax reference for each supported diagram type |
 | `templates/` | Starter templates for new projects |
 
