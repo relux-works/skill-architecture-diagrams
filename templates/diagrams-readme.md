@@ -44,13 +44,13 @@ structurizr export -workspace c4/workspace.dsl -format svg -output artefacts/c4
 curl -L -o .temp/plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
 
 # Render diagram
-java -jar .temp/plantuml.jar plantuml/sequence/auth-flow.puml
+java -Djava.awt.headless=true -jar .temp/plantuml.jar plantuml/sequence/auth-flow.puml
 
 # Render all
-java -jar .temp/plantuml.jar -o ../artefacts/plantuml plantuml/**/*.puml
+java -Djava.awt.headless=true -jar .temp/plantuml.jar -o ../artefacts/plantuml plantuml/**/*.puml
 
 # Generate SVG
-java -jar .temp/plantuml.jar -tsvg plantuml/sequence/auth-flow.puml
+java -Djava.awt.headless=true -jar .temp/plantuml.jar -tsvg plantuml/sequence/auth-flow.puml
 ```
 
 ### Graphviz (optional, for some PlantUML diagrams)

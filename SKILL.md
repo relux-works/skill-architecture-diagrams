@@ -318,14 +318,22 @@ structurizr export -workspace diagrams/c4/workspace.dsl -format plantuml -output
 
 ```bash
 # Render single diagram
-java -jar plantuml.jar diagram.puml
+java -Djava.awt.headless=true -jar plantuml.jar diagram.puml
 
 # Render all in directory
-java -jar plantuml.jar -o ../artefacts/plantuml diagrams/plantuml/**/*.puml
+java -Djava.awt.headless=true -jar plantuml.jar -o ../artefacts/plantuml diagrams/plantuml/**/*.puml
 
 # Generate SVG
-java -jar plantuml.jar -tsvg diagram.puml
+java -Djava.awt.headless=true -jar plantuml.jar -tsvg diagram.puml
 ```
+
+> **Always pass `-Djava.awt.headless=true`.** Without it, macOS registers the JVM
+> as a GUI application: it appears in the Dock and takes foreground focus for the
+> lifetime of each render. A loop over many diagrams then steals the keyboard once
+> per file, which makes the machine unusable while a batch runs — and an agent
+> rendering in the background will do exactly that to whoever is at the keyboard.
+> Setting `JAVA_TOOL_OPTIONS=-Djava.awt.headless=true` for the whole batch works
+> too; a render script must do one or the other, never neither.
 
 ### Tool Installation
 
