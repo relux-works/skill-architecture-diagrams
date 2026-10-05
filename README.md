@@ -51,7 +51,7 @@ This repo is an AI agent skill compatible with coding agents (Claude Code, Codex
 
 ### With `~/.agents/` infrastructure
 
-If you use [alexis-agents-infra](https://github.com/anthropics/alexis-agents-infra) for managing global instructions and skills:
+If you use [relux-agents-infra](https://github.com/relux-works/relux-agents-infra) for managing global instructions and skills:
 
 ```bash
 git clone <repo-url> ~/src/skill-architecture-diagrams

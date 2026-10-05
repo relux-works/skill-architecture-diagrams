@@ -30,11 +30,10 @@ brew install structurizr-cli
 # Validate
 structurizr validate -workspace c4/workspace.dsl
 
-# Export PNG
-structurizr export -workspace c4/workspace.dsl -format png -output artefacts/c4
-
-# Export SVG
-structurizr export -workspace c4/workspace.dsl -format svg -output artefacts/c4
+# Export to PlantUML (there is no png/svg export format), then render headless
+export JAVA_TOOL_OPTIONS=-Djava.awt.headless=true
+structurizr export -workspace c4/workspace.dsl -format plantuml/c4plantuml -output artefacts/c4
+java -Djava.awt.headless=true -jar .temp/plantuml.jar -tsvg artefacts/c4/*.puml
 ```
 
 ### PlantUML

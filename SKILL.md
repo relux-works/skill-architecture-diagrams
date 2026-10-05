@@ -304,15 +304,21 @@ UserRepo --> DB
 # Validate DSL
 structurizr validate -workspace diagrams/c4/workspace.dsl
 
-# Export to PNG
-structurizr export -workspace diagrams/c4/workspace.dsl -format png -output diagrams/artefacts/c4
+# Export views to PlantUML (C4-PlantUML flavour), then render them headless
+export JAVA_TOOL_OPTIONS=-Djava.awt.headless=true
+structurizr export -workspace diagrams/c4/workspace.dsl -format plantuml/c4plantuml -output diagrams/artefacts/c4
+java -Djava.awt.headless=true -jar plantuml.jar -tsvg diagrams/artefacts/c4/*.puml
 
-# Export to SVG
-structurizr export -workspace diagrams/c4/workspace.dsl -format svg -output diagrams/artefacts/c4
-
-# Export to PlantUML (for further processing)
-structurizr export -workspace diagrams/c4/workspace.dsl -format plantuml -output diagrams/artefacts/c4
+# Other text formats: plantuml, mermaid, dot (render dot with: dot -Tsvg in.dot -o out.svg)
+structurizr export -workspace diagrams/c4/workspace.dsl -format mermaid -output diagrams/artefacts/c4
 ```
+
+> Structurizr CLI has **no `png` or `svg` export format**: it prints
+> `unknown export format` and still ends with `finished`, writing nothing.
+> Export a text format and render it (PlantUML, Graphviz `dot`, Mermaid).
+> Structurizr CLI is a JVM that loads `java.awt` classes, so run it with
+> `JAVA_TOOL_OPTIONS=-Djava.awt.headless=true` for the same reason as PlantUML
+> below. Graphviz `dot` is a native CLI and opens no windows.
 
 ### PlantUML
 
