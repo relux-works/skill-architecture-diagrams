@@ -35,7 +35,7 @@ if [ -L "$AGENTS_DIR/$SKILL_NAME" ]; then
   rm -f "$AGENTS_DIR/$SKILL_NAME"
 fi
 mkdir -p "$AGENTS_DIR/$SKILL_NAME"
-rsync -a --delete "$STAGE_DIR/" "$AGENTS_DIR/$SKILL_NAME/" --exclude='setup.sh'
+rsync -a --delete --delete-excluded "$STAGE_DIR/" "$AGENTS_DIR/$SKILL_NAME/" --exclude='setup.sh'
 echo "  Copied -> $AGENTS_DIR/$SKILL_NAME/"
 
 # 3. Symlink from .claude/skills/ -> .agents/skills/
