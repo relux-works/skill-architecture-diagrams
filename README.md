@@ -13,10 +13,10 @@ Architecture diagrams as code for AI agents. Structurizr DSL (C4 model), PlantUM
 ## Setup
 
 ```bash
-./scripts/setup.sh
+./setup.sh
 ```
 
-Creates symlinks into `~/.agents/skills/`, `~/.claude/skills/`, and `~/.codex/skills/`.
+Copies the committed `HEAD` (via `git archive`) into `~/.agents/skills/architecture-diagrams/` and symlinks it from `~/.claude/skills/` and `~/.codex/skills/`. Untracked or uncommitted local files are never installed.
 
 ### Teardown
 
@@ -56,7 +56,7 @@ If you use [relux-agents-infra](https://github.com/relux-works/relux-agents-infr
 ```bash
 git clone <repo-url> ~/src/skill-architecture-diagrams
 cd ~/src/skill-architecture-diagrams
-./scripts/setup.sh
+./setup.sh
 ```
 
 ### Direct setup (without agents-infra)
@@ -93,8 +93,8 @@ skill-architecture-diagrams/
 │   │   ├── sequence-template.puml
 │   │   └── component-template.puml
 │   └── diagrams-readme.md           # README template for diagrams/ folder
+├── setup.sh                         # Install committed HEAD into ~/.agents + symlinks
 └── scripts/
-    ├── setup.sh                     # Install symlinks
     └── deinit.sh                    # Remove symlinks
 ```
 
