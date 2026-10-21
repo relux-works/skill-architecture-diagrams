@@ -29,7 +29,7 @@ user = person "User" "Description" {
 ```dsl
 system = softwareSystem "System Name" "Description" {
   tags "Internal"
-  url "https://docs.example.com"
+  url "https://docs.architecture.example"
 }
 ```
 
@@ -268,7 +268,7 @@ Available shapes:
 !include model
 
 # Include from URL
-!include https://example.com/shared.dsl
+!include https://architecture.example/shared.dsl
 ```
 
 ## Documentation & ADRs
